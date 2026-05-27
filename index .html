@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE Projects | Gutters, Plumbing & Waterproofing</title>
+    <style>
+        /* Modern Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1e3a8a; /* Deep Navy Blue */
+            --secondary: #0ea5e9; /* Light Blue Accent */
+            --dark: #334155; /* Slate Gray text */
+            --light: #f8fafc; /* Warm White background */
+            --border: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #0284c7;
+        }
+
+        /* Services Grid Section */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 0.5rem auto 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Recent Work Gallery Styles */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 650px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 950px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-details {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-details h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-details p {
+            font-size: 0.95rem;
+            color: var(--dark);
+            line-height: 1.5;
+        }
+
+        /* Form / Layout Section */
+        .interactive-box {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group select, .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .form-group select:focus, .form-group input:focus {
+            border-color: var(--secondary);
+        }
+
+        .result-display {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>AE Projects</h1>
+            </div>
+            <nav>
+                <a href="#services">Our Work</a>
+                <a href="#estimator">Estimate Quote</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Professional Gutter, Plumbing & Waterproofing Services</h2>
+            <p>Reliable craftsmanship and high-quality solutions designed to protect your structure from top to bottom.</p>
+            <a href="#estimator" class="cta-btn">Calculate Estimate</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <img src="gutter1.jpg" alt="Gutter Installation" style="width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:15px;">
+                <h3>Gutter Installations</h3>
+                <p>Expert fitting of seamless aluminum gutters, industrial box gutters, and custom downpipe systems built to handle heavy drainage efficiently.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="plumbing1.jpg" alt="Plumbing Work" style="width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:15px;">
+                <h3>Professional Plumbing</h3>
+                <p>Complete domestic and commercial plumbing infrastructure setup, comprehensive maintenance, leak detections, and robust line replacements.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="waterproofing1.jpg" alt="Waterproofing Project" style="width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:15px;">
+                <h3>Advanced Waterproofing</h3>
+                <p>High-tier structural water sealing and flashing repairs for roofs, joints, parapets, and foundations to ensure permanent moisture barrier security.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="gallery-container" style="background-color: #f8fafc; border-top: 1px solid var(--border);">
+        <h2 class="section-title">Recent Project Highlights</h2>
+        
+        <div class="gallery-grid">
+
+            <div class="gallery-card">
+                <img src="images/1000014183.jpg" alt="Mobile seamless gutter fabrication on-site">
+                <div class="card-details">
+                    <h3>On-Site Mobile Fabrication</h3>
+                    <p>We roll custom seamless aluminum gutters directly on-site to match your building's exact dimensions perfectly, minimizing waste and seams.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/1000008140.jpg" alt="Completed seamless aluminum gutter installation front facade">
+                <div class="card-details">
+                    <h3>Precise Roofline Finishes</h3>
+                    <p>Premium seamless guttering installed neatly along the brickwork facade, providing a clean, professional, and long-lasting finish.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="images/1000005745.jpg" alt="Seamless guttering and downpipe installation on residential building">
+                <div class="card-details">
+                    <h3>Complete Downpipe Integration</h3>
+                    <p>Properly secured downpipes and brackets placed carefully to ensure optimal water flow, protecting the structural foundation.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="estimator" class="section" style="background-color: #f1f5f9;">
+        <h2 class="section-title">Project Estimate Calculator</h2>
+        <div class="interactive-box">
+            <div class="form-group">
+                <label for="serviceType">Select Required Service</label>
+                <select id="serviceType" onchange="calculateEstimate()">
+                    <option value="gutter">Gutter Installation (per meter)</option>
+                    <option value="plumbing">Standard Plumbing Labor (per hour)</option>
+                    <option value="waterproofing">Waterproofing Treatment (per sq meter)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label id="quantityLabel" for="quantity">Estimated Measurement / Scale</label>
+                <input type="number" id="quantity" value="10" min="1" oninput="calculateEstimate()">
+            </div>
+            <div class="result-display" id="estimateResult">
+                Estimated Project Cost: R0.00
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
+            
+            <div style="background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border);">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.4rem;">Get In Touch</h3>
+                
+                <p style="margin-bottom: 1.25rem; font-size: 1.05rem;"><strong>📍 Location:</strong> Northpine Shopping Centre, Cape Town</p>
+                <p style="margin-bottom: 1.25rem; font-size: 1.05rem;"><strong>✉️ Email:</strong> aluyonkymushonga@gmail.com</p>
+                <p style="margin-bottom: 1.25rem; font-size: 1.05rem;"><strong>⏰ Hours:</strong> Mon - Fri: 08:00 - 17:00 | Sat: 08:00 - 13:00</p>
+                
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+                <h4 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.1rem;">Chat with Alouis:</h4>
+                
+                <div style="margin-bottom: 0.75rem;">
+                    <a href="https://wa.me/27799187369?text=Hi%20AE%20Projects,%20I%20would%20like%20to%20request%20a%20quote%20for%20my%20property." 
+                       target="_blank" 
+                       style="display: inline-flex; align-items: center; background-color: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; gap: 8px; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                       💬 WhatsApp: 079 918 7369
+                    </a>
+                </div>
+
+                <div>
+                    <a href="https://wa.me/27683964579?text=Hi%20AE%20Projects,%20I%20would%20like%20to%20request%20a%20quote%20for%20my%20property." 
+                       target="_blank" 
+                       style="display: inline-flex; align-items: center; background-color: #25D366; color: white; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: bold; gap: 8px; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                       💬 WhatsApp: 068 396 4579
+                    </a>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+                <p style="font-size: 0.9rem; color: #64748b; font-style: italic;">* Standard terms: Payment on completion.</p>
+            </div>
+
+            <div class="interactive-box" style="margin: 0; max-width: 100%;">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.4rem;">Request a Formal Quote</h3>
+                <form onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="clientName">Your Name</label>
+                        <input type="text" id="clientName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientContact">Email / Phone Number</label>
+                        <input type="text" id="clientContact" required placeholder="How should we contact you?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Description & Requirements</label>
+                        <textarea id="message" rows="4" required placeholder="Provide details like gutter length, plumbing issues, or waterproofing size..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn" style="border: none; width: 100%; cursor: pointer;">Submit Request</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AE Projects. All Rights Reserved. Clean, professional solutions built to last.</p>
+    </footer>
+
+    <script>
+        function calculateEstimate() {
+            const service = document.getElementById('serviceType').value;
+            const qty = parseFloat(document.getElementById('quantity').value) || 0;
+            const resultBox = document.getElementById('estimateResult');
+            
+            let rate = 0;
+            let unit = "";
+            
+            if (service === 'gutter') {
+                rate = 145; 
+                unit = "meters";
+                document.getElementById('quantityLabel').innerText = "Total Length Required (Meters)";
+            } else if (service === 'plumbing') {
+                rate = 450; 
+                unit = "hours";
+                document.getElementById('quantityLabel').innerText = "Estimated Project Time (Hours)";
+            } else if (service === 'waterproofing') {
+                rate = 220; 
+                unit = "sq meters";
+                document.getElementById('quantityLabel').innerText = "Total Surface Area (Sq Meters)";
+            }
+            
+            const total = rate * qty;
+            resultBox.style.display = "block";
+            resultBox.innerText = `Approximate Cost: R ${total.toFixed(2)} (Based on ${qty} ${unit})`;
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("Thank you! Your project request has been submitted successfully. A structural specialist will contact you shortly.");
+            event.target.reset();
+        }
+
+        window.onload = calculateEstimate;
+    </script>
+</body>
+</html>
